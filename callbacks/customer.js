@@ -9,17 +9,13 @@ class Customer {
     waitTime() {
         return Math.round((Date.now() - this.start)/1000)
     }
-    placeOrder(menu) {
+    placeOrder(menu, done) {
         // The customer spends some time thinking
-        return new Promise(resolve => 
-            setTimeout(resolve, Math.ceil(Math.random()*secondsToWait)*1000)
-        )
+        setTimeout(done, Math.ceil(Math.random()*secondsToWait)*1000)
     }
     eatAndPay(food, done) {
-        // The customer takes some time to eat and pay
-        return new Promise(resolve =>
-            setTimeout(resolve, Math.ceil(Math.random()*secondsToWait)*1000)
-        )
+        // The customer eats, pays and is done
+        setTimeout(done, Math.ceil(Math.random()*secondsToWait)*1000)
     }
 }
 
