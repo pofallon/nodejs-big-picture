@@ -32,7 +32,8 @@ const serveAllCustomers = (customers, done) => {
   })
 }
 
-serveAllCustomers(Array.from(Array(customerCount), () => new Customer()), () => { })
+if (require.main === module) {
+  serveAllCustomers(Array.from(Array(customerCount), () => new Customer()), () => { })
+}
 
-
-
+module.exports = { serveCustomer }

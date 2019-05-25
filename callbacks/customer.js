@@ -11,7 +11,10 @@ class Customer {
     }
     placeOrder(menu, done) {
         // The customer spends some time thinking
-        setTimeout(done, Math.ceil(Math.random()*secondsToWait)*1000)
+        setTimeout(() => {
+          let selection = menu[Math.floor(Math.random()*menu.length)]
+          done(null, selection)
+        }, Math.ceil(Math.random()*secondsToWait)*1000)
     }
     eatAndPay(food, done) {
         // The customer eats, pays and is done
